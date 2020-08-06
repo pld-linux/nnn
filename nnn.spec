@@ -3,15 +3,17 @@
 #
 Summary:	The missing terminal file browser for X
 Name:		nnn
-Version:	2.1
+Version:	3.3
 Release:	1
 License:	BSD
 Group:		Applications/Console
 Source0:	https://github.com/jarun/nnn/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	6c4094064a9e8edbc73c0f37c6d4ccf0
+# Source0-md5:	08c00d529ab824329b1f30968c3037b0
 Patch0:		%{name}-no-rebuild-on-install.patch
+Patch1:		%{name}-flags.patch
 URL:		https://github.com/jarun/nnn
 BuildRequires:	ncurses-devel
+BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -87,13 +89,17 @@ Dopełnianie parametrów w zsh dla polecenia nnn.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__make} \
 	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags}" \
+	CFLAGS_OPTIMIZATION= \
 	CPPFLAGS="%{rpmcppflags}" \
-	LDFLAGS="%{rpmldflags}"
+	LDFLAGS="%{rpmldflags}" \
+	O_CTX8=1 \
+	O_PCRE=1
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -102,11 +108,11 @@ rm -rf $RPM_BUILD_ROOT
 	PREFIX=%{_prefix}
 
 install -Dpm0644 -t $RPM_BUILD_ROOT%{bash_compdir} \
-  scripts/auto-completion/bash/nnn-completion.bash
+  misc/auto-completion/bash/nnn-completion.bash
 install -Dpm0644 -t $RPM_BUILD_ROOT%{fish_compdir} \
-  scripts/auto-completion/fish/nnn.fish
+  misc/auto-completion/fish/nnn.fish
 install -Dpm0644 -t $RPM_BUILD_ROOT%{zsh_compdir} \
-  scripts/auto-completion/zsh/_nnn
+  misc/auto-completion/zsh/_nnn
 
 %clean
 rm -rf $RPM_BUILD_ROOT

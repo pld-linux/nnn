@@ -4,7 +4,7 @@
 Summary:	The missing terminal file browser for X
 Name:		nnn
 Version:	3.3
-Release:	1
+Release:	2
 License:	BSD
 Group:		Applications/Console
 Source0:	https://github.com/jarun/nnn/archive/v%{version}/%{name}-%{version}.tar.gz
@@ -16,6 +16,7 @@ BuildRequires:	ncurses-devel
 BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel
+Suggests:	archivemount
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description

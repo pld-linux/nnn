@@ -3,12 +3,12 @@
 #
 Summary:	The missing terminal file browser for X
 Name:		nnn
-Version:	3.3
-Release:	2
+Version:	3.5
+Release:	1
 License:	BSD
 Group:		Applications/Console
 Source0:	https://github.com/jarun/nnn/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	08c00d529ab824329b1f30968c3037b0
+# Source0-md5:	f5bb1d9e6626363f90330fca1a995cad
 Patch0:		%{name}-no-rebuild-on-install.patch
 Patch1:		%{name}-flags.patch
 URL:		https://github.com/jarun/nnn

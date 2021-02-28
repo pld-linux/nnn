@@ -51,9 +51,7 @@ Summary(pl.UTF-8):	bashowe uzupełnianie nazw dla nnn
 Group:		Applications/Shells
 Requires:	%{name} = %{version}-%{release}
 Requires:	bash-completion >= 2.0
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description -n bash-completion-nnn
 This package provides bash-completion for nnn.

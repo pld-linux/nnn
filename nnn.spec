@@ -4,7 +4,7 @@
 Summary:	The missing terminal file browser for X
 Name:		nnn
 Version:	3.6
-Release:	1
+Release:	2
 License:	BSD
 Group:		Applications/Console
 Source0:	https://github.com/jarun/nnn/archive/v%{version}/%{name}-%{version}.tar.gz
@@ -65,6 +65,7 @@ Summary(pl.UTF-8):	Dopełnianie parametrów w fish dla polecenia nnn
 Group:		Applications/Shells
 Requires:	fish
 Requires:	nnn = %{version}-%{release}
+BuildArch:	noarch
 
 %description -n fish-completion-nnn
 Fish completion for nnn command.
@@ -78,6 +79,7 @@ Summary(pl.UTF-8):	Dopełnianie parametrów w zsh dla polecenia nnn
 Group:		Applications/Shells
 Requires:	nnn = %{version}-%{release}
 Requires:	zsh
+BuildArch:	noarch
 
 %description -n zsh-completion-nnn
 Zsh completion for nnn command.

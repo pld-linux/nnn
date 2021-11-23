@@ -3,12 +3,12 @@
 #
 Summary:	The missing terminal file browser for X
 Name:		nnn
-Version:	4.3
+Version:	4.4
 Release:	1
 License:	BSD
 Group:		Applications/Console
 Source0:	https://github.com/jarun/nnn/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	8263efb03dc28e02f32ddaa0e07ddaf1
+# Source0-md5:	3f5d7734648c9c0993131efe4158f1b8
 Patch0:		%{name}-no-rebuild-on-install.patch
 URL:		https://github.com/jarun/nnn
 BuildRequires:	ncurses-devel

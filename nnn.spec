@@ -15,6 +15,7 @@ BuildRequires:	ncurses-devel
 BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel
+BuildRequires:	rpm-build >= 4.6
 Suggests:	archivemount
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

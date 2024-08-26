@@ -3,12 +3,12 @@
 #
 Summary:	The missing terminal file browser for X
 Name:		nnn
-Version:	4.9
+Version:	5.0
 Release:	1
 License:	BSD
 Group:		Applications/Console
 Source0:	https://github.com/jarun/nnn/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	4b2c880c78840f4f0d64b0fe84bbbf6c
+# Source0-md5:	7179441463af5e323161fc8a9aa436ab
 Patch0:		%{name}-no-rebuild-on-install.patch
 URL:		https://github.com/jarun/nnn
 BuildRequires:	ncurses-devel
@@ -108,11 +108,11 @@ rm -rf $RPM_BUILD_ROOT
 	PREFIX=%{_prefix}
 
 install -Dpm0644 -t $RPM_BUILD_ROOT%{bash_compdir} \
-  misc/auto-completion/bash/nnn-completion.bash
+	misc/auto-completion/bash/nnn-completion.bash
 install -Dpm0644 -t $RPM_BUILD_ROOT%{fish_compdir} \
-  misc/auto-completion/fish/nnn.fish
+	misc/auto-completion/fish/nnn.fish
 install -Dpm0644 -t $RPM_BUILD_ROOT%{zsh_compdir} \
-  misc/auto-completion/zsh/_nnn
+	misc/auto-completion/zsh/_nnn
 
 %clean
 rm -rf $RPM_BUILD_ROOT

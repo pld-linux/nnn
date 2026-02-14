@@ -3,16 +3,16 @@
 #
 Summary:	The missing terminal file browser for X
 Name:		nnn
-Version:	5.1
+Version:	5.2
 Release:	1
 License:	BSD
 Group:		Applications/Console
 Source0:	https://github.com/jarun/nnn/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	e9819c2fa86ff13b473adfe34813bf77
+# Source0-md5:	3965832b9aeb442ce53a3cc964f93abe
 Patch0:		%{name}-no-rebuild-on-install.patch
 URL:		https://github.com/jarun/nnn
 BuildRequires:	ncurses-devel
-BuildRequires:	pcre-devel
+BuildRequires:	pcre2-8-devel
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel
 BuildRequires:	rpm-build >= 4.6
@@ -98,8 +98,7 @@ export LDFLAGS="%{rpmldflags}"
 %{__make} \
 	CC="%{__cc}" \
 	CFLAGS_OPTIMIZATION= \
-	O_CTX8=1 \
-	O_PCRE=1
+	O_PCRE2=1
 
 %install
 rm -rf $RPM_BUILD_ROOT

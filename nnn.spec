@@ -11,11 +11,15 @@ Source0:	https://github.com/jarun/nnn/archive/v%{version}/%{name}-%{version}.tar
 # Source0-md5:	3965832b9aeb442ce53a3cc964f93abe
 Patch0:		%{name}-no-rebuild-on-install.patch
 URL:		https://github.com/jarun/nnn
+%ifnarch %arch_with_atomics64
+BuildRequires:	libatomic-devel
+%endif
 BuildRequires:	ncurses-devel
 BuildRequires:	pcre2-8-devel
 BuildRequires:	pkgconfig
 BuildRequires:	readline-devel
 BuildRequires:	rpm-build >= 4.6
+BuildRequires:	rpmbuild(macros) >= 2.025
 Suggests:	archivemount
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -95,6 +99,9 @@ Dopełnianie parametrów w zsh dla polecenia nnn.
 export CFLAGS="%{rpmcflags}"
 export CPPFLAGS="%{rpmcppflags}"
 export LDFLAGS="%{rpmldflags}"
+%ifnarch %arch_with_atomics64
+export LDLIBS=-latomic
+%endif
 %{__make} \
 	CC="%{__cc}" \
 	CFLAGS_OPTIMIZATION= \
